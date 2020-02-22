@@ -1,0 +1,1 @@
+wp-content/uploads/([\s\S]+?).(pdf|docx|doc|xlsx|xls|rtf|csv|zip)$
