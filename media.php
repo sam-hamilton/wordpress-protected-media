@@ -44,6 +44,9 @@ if ( false === strpos( $_SERVER['SERVER_SOFTWARE'], 'Microsoft-IIS' ) )
 
 $last_modified = gmdate( 'D, d M Y H:i:s', filemtime( $file ) );
 $etag = '"' . md5( $last_modified ) . '"';
+$fileName = explode('/', $_GET['file']);
+$fileName = end($fileName);
+header( 'Content-Disposition: attachment; filename="' . $fileName . '"');
 header( "Last-Modified: $last_modified GMT" );
 header( 'ETag: ' . $etag );
 header( 'Expires: ' . gmdate( 'D, d M Y H:i:s', time() + 100000000 ) . ' GMT' );
